@@ -40,11 +40,11 @@
                     }
                     document.getElementById("totalbonuscps").value = totalbonus;
                     for (var i = 0; i < share.length; i++) { //initial share based on percentage of points contributed
-                        share[i].value = (ctfpoints[i].value / totalctfpoints) * totalcps;
+                        share[i].value = Math.round((ctfpoints[i].value / totalctfpoints) * totalcps);
                     }
                     totalcps = totalcps - totalbonus;
                     for (var i = 0; i < finalshare.length; i++) { //final share based on percentage + bonus amount
-                        finalshare[i].value = (ctfpoints[i].value / totalctfpoints) * totalcps + parseInt(bonus[i].value);
+                        finalshare[i].value = Math.round((ctfpoints[i].value / totalctfpoints) * totalcps + parseInt(bonus[i].value));
                     }
                 });
             });
