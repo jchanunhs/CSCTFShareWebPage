@@ -6,7 +6,7 @@
         <script>
             $(document).ready(function () {
                 $("#addmembers").click(function () {
-                    var table_format = '<tr><td><input type="text" name="name[]"></td><td><input type="number" name="ctfpoints[]"></td><td><input type="number" name="share[]" readonly="true"></td><td><input type="number" name="finalshare[]"readonly="true"></td><td><input type="number" name="bonus[]"></td></tr>';
+                    var table_format = '<tr><td><input type="text" name="name[]"></td><td><input type="number" name="ctfpoints[]"></td><td><input type="number" name="share[]" readonly></td><td><input type="number" name="finalshare[]"readonly></td><td><input type="number" name="bonus[]"></td></tr>';
                     $("table").append(table_format)
                     var num_members = document.getElementsByName("name[]");
                     document.getElementById("numberofmembers").innerHTML = "Number of members: " + num_members.length;
@@ -80,29 +80,29 @@
                 <tr>
                     <td><input type="text" name="name[]"></td>
                     <td><input type="number" name="ctfpoints[]"></td>
-                    <td><input type="number" name="share[]"readonly="true"></td>
-                    <td><input type="number" name="finalshare[]"readonly="true"></td>
+                    <td><input type="number" name="share[]"readonly></td>
+                    <td><input type="number" name="finalshare[]"readonly></td>
                     <td><input type="number" name="bonus[]"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="name[]"></td>
                     <td><input type="number" name="ctfpoints[]"></td>
-                    <td><input type="number" name="share[]"readonly="true"></td>
-                    <td><input type="number" name="finalshare[]"readonly="true"></td>
+                    <td><input type="number" name="share[]"readonly></td>
+                    <td><input type="number" name="finalshare[]"readonly></td>
                     <td><input type="number" name="bonus[]"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="name[]"></td>
                     <td><input type="number" name="ctfpoints[]"></td>
-                    <td><input type="number" name="share[]"readonly="true"></td>
-                    <td><input type="number" name="finalshare[]"readonly="true"></td>
+                    <td><input type="number" name="share[]"readonly></td>
+                    <td><input type="number" name="finalshare[]"readonly></td>
                     <td><input type="number" name="bonus[]"></td>
                 </tr>
             </table>
             <label for="totalctfpoints">Total CTF Points:</label>
-            <input type="number" id="totalctfpoints" name="totalctfpoints" readonly="true"><br><br>
+            <input type="number" id="totalctfpoints" name="totalctfpoints" readonly><br><br>
             <label for="totalbonuscps">Total Bonus CPs Used:</label>
-            <input type="number" id="totalbonuscps" name="totalbonuscps" readonly="true"><br><br>
+            <input type="number" id="totalbonuscps" name="totalbonuscps" readonly><br><br>
             <label for="totalcps">Enter Total Number of CPs Available(Including Bonus):</label>
             <input type="number" id="totalcps" name="totalcps"><br><br>
             <button id="calculateshares">Calculate Shares</button>
