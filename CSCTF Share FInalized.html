@@ -20,30 +20,30 @@
                     var totalctfpoints = 0;
                     var totalcps = document.getElementById("totalcps").value;
                     var totalbonus = 0;
-                    if (totalcps == "") {
+                    if (totalcps == "") { //check if user input a value for total cps
                         window.alert("Enter Total CPs!");
                         return false;
                     }
-                    for (var i = 0; i < ctfpoints.length; i++) {
+                    for (var i = 0; i < ctfpoints.length; i++) { //check if user entered ctf points and make sum of ctfpoint array
                         if (ctfpoints[i].value == "") {
                             window.alert("Enter CTF Points for " + name[i].value);
                             return false;
                         }
                         totalctfpoints += parseInt(ctfpoints[i].value);
                     }
-                    document.getElementById("totalctfpoints").value = totalctfpoints;
-                    for (var i = 0; i < share.length; i++) {
+                    document.getElementById("totalctfpoints").value = totalctfpoints; 
+                    for (var i = 0; i < share.length; i++) { //sum of bonus points. if bonus field is empty it is 0 by default.
                         if (bonus[i].value == "") {
                             bonus[i].value = 0;
                         }
                         totalbonus += parseInt(bonus[i].value);
                     }
                     document.getElementById("totalbonuscps").value = totalbonus;
-                    for (var i = 0; i < share.length; i++) {
+                    for (var i = 0; i < share.length; i++) { //initial share based on percentage of points contributed
                         share[i].value = (ctfpoints[i].value / totalctfpoints) * totalcps;
                     }
                     totalcps = totalcps - totalbonus;
-                    for (var i = 0; i < finalshare.length; i++) {
+                    for (var i = 0; i < finalshare.length; i++) { //final share based on percentage + bonus amount
                         finalshare[i].value = (ctfpoints[i].value / totalctfpoints) * totalcps + parseInt(bonus[i].value);
                     }
                 });
