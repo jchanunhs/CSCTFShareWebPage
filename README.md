@@ -1,6 +1,8 @@
 # CSCTFShareWebPage
 Webpage to calculate percentage shares
 
+Objective - Learning how to use jQuery and JavaScript.
+
 Formulas
 
 Initial share - share value before bonus
