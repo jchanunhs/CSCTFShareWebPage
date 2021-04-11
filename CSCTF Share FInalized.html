@@ -43,6 +43,7 @@
                         share[i].value = Math.round((ctfpoints[i].value / totalctfpoints) * totalcps);
                     }
                     totalcps = totalcps - totalbonus;
+                    document.getElementById("cpsavailable").value = totalcps; //cps available after subtracting for bonus
                     for (var i = 0; i < finalshare.length; i++) { //final share based on percentage + bonus amount
                         finalshare[i].value = Math.round((ctfpoints[i].value / totalctfpoints) * totalcps + parseInt(bonus[i].value));
                     }
@@ -73,9 +74,9 @@
                 <tr>
                     <th>Enter Name</th>
                     <th>Enter CTF Points</th> 
-                    <th>Share</th>
-                    <th>Final Share</th>
-                    <th>Enter Bonus</th>
+                    <th>Initial Share Based Off CSCTF Points</th>
+                    <th>Final Share With Bonus CPs</th>
+                    <th>Enter Bonus(leave empty if no bonus)</th>
                 </tr>
                 <tr>
                     <td><input type="text" name="name[]"></td>
@@ -101,9 +102,11 @@
             </table>
             <label for="totalctfpoints">Total CTF Points:</label>
             <input type="number" id="totalctfpoints" name="totalctfpoints" readonly><br><br>
-            <label for="totalbonuscps">Total Bonus CPs Used:</label>
+            <label for="totalbonuscps">Total CPs Used For Bonus:</label>
             <input type="number" id="totalbonuscps" name="totalbonuscps" readonly><br><br>
-            <label for="totalcps">Enter Total Number of CPs Available(Including Bonus):</label>
+            <label for="cpsavailable">Total CPs Available After Giving Bonus CPs:</label>
+            <input type="number" id="cpsavailable" name="cpsavailable" readonly><br><br>
+            <label for="totalcps">Enter Total CPs Up For Grabs:</label>
             <input type="number" id="totalcps" name="totalcps"><br><br>
             <button id="calculateshares">Calculate Shares</button>
         </div>
