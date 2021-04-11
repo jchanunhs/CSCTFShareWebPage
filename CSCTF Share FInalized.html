@@ -6,7 +6,7 @@
         <script>
             $(document).ready(function () {
                 $("#addmembers").click(function () {
-                    var table_format = '<tr><td><input type="text" name="name[]"></td><td><input type="number" name="ctfpoints[]"></td><td><input type="number" name="share[]" readonly></td><td><input type="number" name="finalshare[]"readonly></td><td><input type="number" name="bonus[]"></td></tr>';
+                    var table_format = '<tr><td><input type="text" name="name[]"></td><td><input type="number" name="ctfpoints[]"></td><td><input type="number" name="share[]" readonly></td><td><input type="number" name="finalshare[]" readonly></td><td><input type="number" name="bonus[]"></td></tr>';
                     $("table").append(table_format)
                     var num_members = document.getElementsByName("name[]");
                     document.getElementById("numberofmembers").innerHTML = "Number of members: " + num_members.length;
@@ -80,22 +80,22 @@
                 <tr>
                     <td><input type="text" name="name[]"></td>
                     <td><input type="number" name="ctfpoints[]"></td>
-                    <td><input type="number" name="share[]"readonly></td>
-                    <td><input type="number" name="finalshare[]"readonly></td>
+                    <td><input type="number" name="share[]" readonly></td>
+                    <td><input type="number" name="finalshare[]" readonly></td>
                     <td><input type="number" name="bonus[]"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="name[]"></td>
                     <td><input type="number" name="ctfpoints[]"></td>
-                    <td><input type="number" name="share[]"readonly></td>
-                    <td><input type="number" name="finalshare[]"readonly></td>
+                    <td><input type="number" name="share[]" readonly></td>
+                    <td><input type="number" name="finalshare[]" readonly></td>
                     <td><input type="number" name="bonus[]"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="name[]"></td>
                     <td><input type="number" name="ctfpoints[]"></td>
-                    <td><input type="number" name="share[]"readonly></td>
-                    <td><input type="number" name="finalshare[]"readonly></td>
+                    <td><input type="number" name="share[]" readonly></td>
+                    <td><input type="number" name="finalshare[]" readonly></td>
                     <td><input type="number" name="bonus[]"></td>
                 </tr>
             </table>
