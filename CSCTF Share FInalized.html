@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSCTF Share Program</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#addmembers").click(function () {
+                    var table_format = '<tr><td><input type="text" name="name[]"></td><td><input type="number" name="ctfpoints[]"></td><td><input type="number" name="share[]" readonly="true"></td><td><input type="number" name="finalshare[]"readonly="true"></td><td><input type="number" name="bonus[]"></td></tr>';
+                    $("table").append(table_format)
+                    var num_members = document.getElementsByName("name[]");
+                    document.getElementById("numberofmembers").innerHTML = "Number of members: " + num_members.length;
+                });
+                $("#calculateshares").click(function () {
+                    var name = document.getElementsByName("name[]");
+                    var ctfpoints = document.getElementsByName("ctfpoints[]");
+                    var share = document.getElementsByName("share[]");
+                    var finalshare = document.getElementsByName("finalshare[]");
+                    var bonus = document.getElementsByName("bonus[]");
+                    var totalctfpoints = 0;
+                    var totalcps = document.getElementById("totalcps").value;
+                    var totalbonus = 0;
+                    if (totalcps == "") {
+                        window.alert("Enter Total CPs!");
+                        return false;
+                    }
+                    for (var i = 0; i < ctfpoints.length; i++) {
+                        if (ctfpoints[i].value == "") {
+                            window.alert("Enter CTF Points for " + name[i].value);
+                            return false;
+                        }
+                        totalctfpoints += parseInt(ctfpoints[i].value);
+                    }
+                    document.getElementById("totalctfpoints").value = totalctfpoints;
+                    for (var i = 0; i < share.length; i++) {
+                        if (bonus[i].value == "") {
+                            bonus[i].value = 0;
+                        }
+                        totalbonus += parseInt(bonus[i].value);
+                    }
+                    document.getElementById("totalbonuscps").value = totalbonus;
+                    for (var i = 0; i < share.length; i++) {
+                        share[i].value = (ctfpoints[i].value / totalctfpoints) * totalcps;
+                    }
+                    totalcps = totalcps - totalbonus;
+                    for (var i = 0; i < finalshare.length; i++) {
+                        finalshare[i].value = (ctfpoints[i].value / totalctfpoints) * totalcps + parseInt(bonus[i].value);
+                    }
+                });
+            });
+        </script>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                text-align: center;
+            }
+            table{
+                margin-top:5px;
+                margin-bottom:5px;
+            }
+            #wrapper {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "wrapper">
+            <h1>CSCTF Share Program</h1>
+            <h2 id="numberofmembers">Number of members: 3</h2>
+            <button id="addmembers">Add Members</button>
+            <table style="width:100%">
+                <tr>
+                    <th>Enter Name</th>
+                    <th>Enter CTF Points</th> 
+                    <th>Share</th>
+                    <th>Final Share</th>
+                    <th>Enter Bonus</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="name[]"></td>
+                    <td><input type="number" name="ctfpoints[]"></td>
+                    <td><input type="number" name="share[]"readonly="true"></td>
+                    <td><input type="number" name="finalshare[]"readonly="true"></td>
+                    <td><input type="number" name="bonus[]"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="name[]"></td>
+                    <td><input type="number" name="ctfpoints[]"></td>
+                    <td><input type="number" name="share[]"readonly="true"></td>
+                    <td><input type="number" name="finalshare[]"readonly="true"></td>
+                    <td><input type="number" name="bonus[]"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="name[]"></td>
+                    <td><input type="number" name="ctfpoints[]"></td>
+                    <td><input type="number" name="share[]"readonly="true"></td>
+                    <td><input type="number" name="finalshare[]"readonly="true"></td>
+                    <td><input type="number" name="bonus[]"></td>
+                </tr>
+            </table>
+            <label for="totalctfpoints">Total CTF Points:</label>
+            <input type="number" id="totalctfpoints" name="totalctfpoints" readonly="true"><br><br>
+            <label for="totalbonuscps">Total Bonus CPs Used:</label>
+            <input type="number" id="totalbonuscps" name="totalbonuscps" readonly="true"><br><br>
+            <label for="totalcps">Enter Total Number of CPs Available(Including Bonus):</label>
+            <input type="number" id="totalcps" name="totalcps"><br><br>
+            <button id="calculateshares">Calculate Shares</button>
+        </div>
+    </body>
+</html>
