@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSCTF Points Program</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#addmembers").click(function () {
+                    var table_format = '<tr><td><input type="text" name="name[]"></td><td><input type="number" name="kills[]"></td><td><input type="number" name="shackle[]"></td><td><input type="number" name="unshackle[]"></td><td><input type="number" name="rev[]"></td><td><input type="number" name="flags_cap[]"></td><td><input type="number" name="flags_deliver[]"></td><td><input type="number" name="total[]" readonly></td></tr>';
+                    $("table").append(table_format)
+                    var num_members = document.getElementsByName("name[]");
+                    document.getElementById("numberofmembers").innerHTML = "Number of members: " + num_members.length;
+                });
+                $("#calculatepoints").click(function () {
+                    var name = document.getElementsByName("name[]");
+		    var kill = document.getElementsByName("kills[]");
+		    var shackle = document.getElementsByName("shackle[]");
+		    var unshackle = document.getElementsByName("unshackle[]");
+		    var rev = document.getElementsByName("rev[]");
+		    var flags_cap = document.getElementsByName("flags_cap[]");
+		    var flags_deliver = document.getElementsByName("flags_deliver[]");
+		    var total = document.getElementsByName("total[]");
+		    const KILLS_PER_POINTS = 1;
+		    const SHACKLE_PER_POINTS = 1;
+		    const UNSHACKLE_PER_POINTS = 1;
+		    const REV_PER_POINTS = 2;
+		    const FLAGS_CAP_PER_POINTS = 3;
+		    const FLAGS_DELIVER_PER_POINTS = 30;
+		    for (var i = 0; i < name.length; i++) { 
+                        total[i].value = (kill[i].value * KILLS_PER_POINTS) + (shackle[i].value * SHACKLE_PER_POINTS) + (unshackle[i].value * UNSHACKLE_PER_POINTS) + (rev[i].value * REV_PER_POINTS) + (flags_cap[i].value * FLAGS_CAP_PER_POINTS) + (flags_deliver[i].value * FLAGS_DELIVER_PER_POINTS);
+                    }
+                });
+            });
+        </script>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                text-align: center;
+            }
+            table{
+                margin-top:5px;
+                margin-bottom:5px;
+            }
+            #wrapper {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "wrapper">
+            <h1>CSCTF Points Program</h1>
+            <h2 id="numberofmembers">Number of members: 3</h2>
+            <button id="addmembers">Add Members</button>
+            <table style="width:100%">
+                <tr>
+                    <th>Enter Name</th>
+                    <th>Enter Number of Kills(1pt/kill)</th> 
+                    <th>Enter Number of Shackles(1pt/shackle)</th>
+                    <th>Enter Number of Unshackles(1pt/unshackle)</th>
+                    <th>Enter Number of Revives(2pt/rev)</th>
+		    <th>Enter Number of Flags Captured(3pt/flags)</th>
+		    <th>Enter Number of Flags Delivered(30pts/flags_delivered_x2)</th>
+		    <th>Total CSCTF Points)</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="name[]"></td>
+                    <td><input type="number" name="kills[]"></td>
+                    <td><input type="number" name="shackle[]"></td>
+                    <td><input type="number" name="unshackle[]"></td>
+                    <td><input type="number" name="rev[]"></td>
+		    <td><input type="number" name="flags_cap[]"></td>
+	            <td><input type="number" name="flags_deliver[]"></td>
+		    <td><input type="number" name="total[]" readonly></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="name[]"></td>
+                    <td><input type="number" name="kills[]"></td>
+                    <td><input type="number" name="shackle[]"></td>
+                    <td><input type="number" name="unshackle[]"></td>
+                    <td><input type="number" name="rev[]"></td>
+		    <td><input type="number" name="flags_cap[]"></td>
+	            <td><input type="number" name="flags_deliver[]"></td>
+		    <td><input type="number" name="total[]" readonly></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="name[]"></td>
+                    <td><input type="number" name="kills[]"></td>
+                    <td><input type="number" name="shackle[]"></td>
+                    <td><input type="number" name="unshackle[]"></td>
+                    <td><input type="number" name="rev[]"></td>
+		    <td><input type="number" name="flags_cap[]"></td>
+	            <td><input type="number" name="flags_deliver[]"></td>
+		    <td><input type="number" name="total[]" readonly></td>
+                </tr>
+            </table>
+            <button id="calculatepoints">Calculate CSCTF Points</button>
+        </div>
+    </body>
+</html>
