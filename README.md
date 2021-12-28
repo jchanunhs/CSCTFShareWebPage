@@ -26,6 +26,7 @@ The total reward will be subtracted by the total amount of bonus rewards given o
 Calculate CSCTF Points. This is under the assumption that you're in x2 base the full hour
 
 Formula
+
 USER_CSCTF_POINTS = Kills + shackles + unshackles + revive + flags_captured + flags_delivered
 
 KILLS_PER_POINTS = 1;
