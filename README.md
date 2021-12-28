@@ -14,7 +14,7 @@ REWARD_POINTS = Amount of CPs (or any general reward points)
 BONUS_REWARDS = The total amount of extra rewards given to certain players (Can be in CPs or any reward point in general) 
 USER_BONUS = THe amount of extra reward the user recieves. 
 
-Share (Initial Share) = (USER_POINTS / TOTAL_POINTS) * REWARD_POINTS;   
+Share (Initial Share) = (USER_POINTS / TOTAL_POINTS) * REWARD_POINTS  
 Share (Final) = (USER_POINTS / TOTAL_POINTS) * (REWARD_POINTS - BONUS_REWARDS) + USER_BONUS
 
 To calculate the percentage of work the user has done, we divide the users points and the total points of all participants, then multiply it by the reward points.
