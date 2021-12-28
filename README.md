@@ -5,7 +5,7 @@ Objective - Learning how to use jQuery and JavaScript.
 
 Formulas
 
-Initial share - share value before bonus
+Initial share - share value before bonus  
 Final share - share value after adding the bonus rewards
 
 USER_POINTS = How many points the user recieved in CSCTF
@@ -28,7 +28,7 @@ Calculate CSCTF Points. This is under the assumption that you're in x2 base the 
 Formula
 
 USER_CSCTF_POINTS = Kills + shackles + unshackles + revive + flags_captured + flags_delivered
-ILLS_PER_POINTS = 1
+KILLS_PER_POINTS = 1
 SHACKLE_PER_POINTS = 1
 UNSHACKLE_PER_POINTS = 1
 REV_PER_POINTS = 2
