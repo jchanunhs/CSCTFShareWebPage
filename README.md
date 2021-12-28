@@ -30,8 +30,13 @@ Formula
 USER_CSCTF_POINTS = Kills + shackles + unshackles + revive + flags_captured + flags_delivered
 
 KILLS_PER_POINTS = 1;
+
 SHACKLE_PER_POINTS = 1;
+
 UNSHACKLE_PER_POINTS = 1;
+
 REV_PER_POINTS = 2;
+
 FLAGS_CAP_PER_POINTS = 3;
+
 FLAGS_DELIVER_PER_POINTS = 30;
